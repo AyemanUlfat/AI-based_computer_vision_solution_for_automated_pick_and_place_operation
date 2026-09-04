@@ -12,52 +12,8 @@ Real-time object detection — YOLOv11 segmentation on live Basler camera feed
 ArUco spatial calibration — pixel-to-mm coordinate transformation using homography
 Shape-specific angle estimation — custom logic per object type for accurate gripper orientation
 TCP/IP robot communication — Python server ↔ ABB RAPID client
-Autonomous pick & place — vacuum gripper with orientation-corrected placement
+Autonomous pick & place — vacuum gripper with orientation-corrected placement                                   
 
-System Architecture
-┌─────────────────────────────────────────────────────────┐
-│                    VISION SYSTEM (PC)                   │
-│                                                         │
-│  Basler Camera (pypylon)                                │
-│       │                                                 │
-│       ▼                                                 │
-│  ArUco Calibration ──► Pixel → MM Transform             │
-│       │                                                 │
-│       ▼                                                 │
-│  YOLOv11 Segmentation                                   │
-│  (circle / square / triangle)                           │
-│       │                                                 │
-│       ▼                                                 │
-│  Angle Estimation (shape-specific)                      │
-│       │                                                 │
-│       ▼                                                 │
-│  TCP Socket Server  ◄──────────────────────────────┐   │
-│  → sends: x_mm, y_mm, angle                        │   │
-└────────────────────────────────────────────────────┼───┘
-                                                     │
-                         TCP/IP (Socket)             │
-                                                     │
-┌────────────────────────────────────────────────────┴───┐
-│                   ABB ROBOT (RAPID)                     │
-│                                                         │
-│  Operator selects shape on teach pendant                │
-│       │                                                 │
-│       ▼                                                 │
-│  Send shape name → PC server                            │
-│  Receive x, y, angle ← PC server                       │
-│       │                                                 │
-│       ▼                                                 │
-│  ParseCoordinates()                                     │
-│       │                                                 │
-│       ▼                                                 │
-│  PickPlace()                                            │
-│  • MoveL to pick position (with offset)                 │
-│  • Activate vacuum gripper (doValve1)                   │
-│  • MoveL home                                           │
-│  • Apply rotation to place target                       │
-│  • MoveL to place position                              │
-│  • Release gripper                                      │
-└─────────────────────────────────────────────────────────┘
 
 Technical Details
 
