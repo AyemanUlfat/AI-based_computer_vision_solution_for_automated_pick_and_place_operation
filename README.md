@@ -1,4 +1,4 @@
-# AI-based_computer_vision_solution_for_automated_pick_and_place_operation
+# AI-based computer vision solution for automated pick and place operation
 
 End-to-end robotic automation system combining YOLOv11 instance segmentation, ArUco-based spatial calibration, and ABB robot control for autonomous object pick & place — built as a university final project.
 
