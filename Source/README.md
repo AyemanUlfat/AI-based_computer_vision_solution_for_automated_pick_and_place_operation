@@ -1,4 +1,4 @@
-# 🤖 Vision-Guided Robot Pick & Place System
+# AI-based computer vision solution for automated pick and place operation
 
 > End-to-end robotic automation system combining **YOLOv11 instance segmentation**, **ArUco-based spatial calibration**, and **ABB robot control** for autonomous object pick & place — built as a university final project.
 
@@ -229,19 +229,4 @@ Upload `robot/MainModule.mod` to the ABB robot controller via RobotStudio or USB
 - [ ] Export model to ONNX for edge deployment on robot controller
 - [ ] Web dashboard for live monitoring and logging
 
----
 
-## 👤 Author
-
-**Binu Shefield Shifani**
-Software Engineer (5 years, Cognizant Technology Solutions)
-MS AI & Automation · University West, Trollhättan, Sweden
-
-[![GitHub](https://img.shields.io/badge/GitHub-BinuShefieldShifani-black?logo=github)](https://github.com/BinuShefieldShifani)
-
----
-
-## 📄 License
-
-MIT License — code is free to use for research and educational purposes.
-The trained model weights (`best.pt`) are not included — available on request alongside the dataset.
